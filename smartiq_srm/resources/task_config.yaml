@@ -1,0 +1,6 @@
+tasks:
+  - task: smartiq_srm.tasks.task1.Task1
+    executor: ProcessPoolExecutor
+    task_store: default
+    trigger_type: interval
+    interval: 2

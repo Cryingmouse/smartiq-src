@@ -1,0 +1,46 @@
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+style = "pep440"  # Use PEP 440 style versioning
+dirty = true  # Add ".dirty" suffix if there are uncommitted changes
+format = "{base}.dev{distance}"  # Format version as {base}.dev{distance}
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
+priority = "primary"
+
+[tool.poetry]
+name = "smartiq-srm"
+version = "0.1.0"
+description = ""
+authors = ["jay.xu <jay.xu@lenovonetapp.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "8.1.7"
+rich = "13.9.4"
+apscheduler = "3.11.0"
+pytz = "^2024.2"
+watchdog = "^6.0.0"
+pyyaml = "^6.0.2"
+pydantic = "^2.10.4"
+fastapi = "^0.115.6"
+oslo-config = "^9.7.0"
+cryptography = "^44.0.0"
+uvicorn = "^0.34.0"
+oslo-log = "^6.2.0"
+
+[tool.poetry.group.dev.dependencies]
+ddt = "1.7.2"
+pytest = "8.3.4"
+black = "24.10.0"
+flake8 = "7.1.1"
+
+[tool.poetry.scripts]
+test = "pytest:main"
+lisa-srm = "smartiq_srm.command.main:scheduler"
