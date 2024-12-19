@@ -16,5 +16,6 @@ docker buildx build --progress=plain -t lisa-srm:3.11-slim .
 ```
 4. 
 ```bash
+docker run --name lisa-srm lisa-srm:3.11-slim
 docker run -d --name lisa-srm lisa-srm:3.11-slim
 ```
